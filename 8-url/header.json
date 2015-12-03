@@ -1,0 +1,13 @@
+{
+  "host": "localhost:3000",
+  "connection": "keep-alive",
+  "cache-control": "max-age=0",
+  "accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8",
+  "upgrade-insecure-requests": "1",
+  "user-agent": "Mozilla/5.0 (Windows NT 6.3; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/45.0.2454.101 Safari/537.36",
+  "accept-encoding": "gzip, deflate, sdch",
+  "accept-language": "zh-CN,zh;q=0.8,en;q=0.6",
+  "cookie": "AJSTAT_ok_times=1; admin_username=admin",
+  "ra-ver": "3.0.7",
+  "ra-sid": "ADFFFB53-20141118-152004-2299a9-13dd88"
+}

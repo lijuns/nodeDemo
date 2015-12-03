@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+<h3>最新新闻</h3>
+<h4>
+    <%- title%>
+</h4>
+
+<ul>
+    <li>
+        <input type="text" placeholder="请输入用户名" name="username" id="username">
+    </li>
+    <li>
+        <input type="password" name="paw" id="paw" placeholder="请输入密码">
+    </li>
+    <li>
+        <input type="file" name="avatar" id="avatar" multiple placeholder="请上传文件">
+    </li>
+    <li>
+        <input type="submit" id="submit" value="提交">
+    </li>
+</ul>
+<div id="ab">
+
+</div>
+<script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+<script>
+    $('#submit').on('click', function () {
+        var data = {
+            'username': $('#username').val(),
+            'paw': $('#paw').val()
+        };
+        $.ajax({
+            url: './reg',
+            method: 'post',
+            data: data,
+            success: function (data) {
+                alert(typeof data);
+                document.getElementById('ab').insertAdjacentHTML('beforeEnd', data);
+            }
+        });
+    });
+</script>
+</body>
+</html>

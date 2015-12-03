@@ -1,0 +1,33 @@
+@charset "utf-8";
+* {
+    margin: 0;
+    padding: 0;
+}
+
+a {
+    text-decoration: none;
+    color: #fff;
+}
+
+menu {
+    margin: 50px auto;
+    width: 980px;
+    height: 50px;
+    line-height: 50px;
+    background: #333;
+    clear: both;
+    overflow: hidden;
+}
+
+menu a {
+    float: left;
+    width: 120px;
+    transition: all .3s;
+    text-align: center;
+    font-family: 'microsoft yahei light', sans-serif;
+}
+
+menu a:hover,menu a.on {
+    background: #cd0000;
+}
+

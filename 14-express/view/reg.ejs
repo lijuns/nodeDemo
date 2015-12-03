@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+<h3>最新新闻</h3>
+<h4>
+    <%- title %>
+</h4>
+
+<form action="/reg" method="post" enctype="multipart/form-data">
+    <ul>
+        <li>
+            <input type="text" placeholder="请输入用户名" name="username">
+        </li>
+        <li>
+            <input type="password" name="paw" id="" placeholder="请输入密码">
+        </li>
+        <li>
+            <input type="file" name="avatar" id="" placeholder="请上传文件">
+        </li>
+        <li>
+            <input type="submit" value="提交">
+        </li>
+    </ul>
+</form>
+</body>
+</html>

@@ -1,0 +1,230 @@
+<!doctype html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="renderer" content="webkit"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <title>上海国际青少年管弦乐团 Shanghai International Youth Orchestra Membership Form</title>
+    <link rel="stylesheet" href="style/main.css"/>
+</head>
+<body>
+<form action="/applyForm" method="post">
+    <section class="wrap">
+        <div class="apply-title">
+            <h1>
+                <a href="">
+                    <img src="image/logo.png" alt=""/>
+                </a>
+            </h1>
+
+            <h3>
+                <span>上海国际青少年管弦乐团报名表格</span><br>
+                <span>Shanghai International Youth Orchestra Membership Form</span>
+            </h3>
+        </div>
+
+        <div class="apply-form">
+            <blockquote>
+                <p>
+                    提升青少年古典音乐素质和修养<br>
+                    促进国际文化交流<br>
+                    成为向世界展示上海的一张文化名片<br>
+                </p>
+
+                <p>
+                    Enhance young people’s appreciation of and skills in classical music<br>
+                    Promote international cultural exchange<br>
+                    Become a cultural ambassador of Shanghai<br>
+                </p>
+            </blockquote>
+        </div>
+        <div class="team-info">
+            <div class="team-basic">
+                <h3>此处由乐团填写 For Orchestra Use Only</h3>
+                <ul>
+                    <li>
+                        <label for="receive-time">
+                            <span>Date Received 收到日期：</span>
+                            <input type="text" id="receive-time" value="2015-12-01" disabled/>
+                        </label>
+                    </li>
+                    <li>
+                        <label for="select-time">
+                            <span>Audition Date 选拔日期：</span>
+                            <input type="text" id="select-time" value="2015-12-12" disabled/>
+                        </label>
+                    </li>
+                    <li>
+                        <label for="apply-time">
+                            <span>Application No. 申请编号：</span>
+                            <input type="text" name="" id="apply-time" value="2015192339" disabled/>
+                        </label>
+                    </li>
+                </ul>
+            </div>
+            <div class="team-pic">
+                    <span>
+                        Attach photo here<br>
+                        上传图片<br>
+                        <a href="javascript:;" class="upload-file">
+                            Upload
+                            <input type="file" name="" accept=".jpg,.png" id=""/>
+                        </a>
+                    </span>
+            </div>
+        </div>
+        <div class="person-infor">
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                <tr>
+                    <th colspan="2" align="left">
+                        <p>
+                            Please submit all documents in either English OR Chinese- use only one language: (Please
+                            fill in the form completely.)<br>
+                            所有栏目请用中文或英文填写(请如实并完整填写申请表)
+                        </p>
+
+                        <p>
+                            * The information collected below is strictly confidential and will not be sold, distributed
+                            or otherwise publicized
+                            outside of SHIYO.<br>
+                            以下收集的信息将严格受到保密。上海国际青少年管弦乐团保证所有信息不会被出售，散布或以其他方式公开。
+                        </p>
+                    </th>
+                </tr>
+                <tr>
+                    <td colspan="2" class="title">
+                        Educational Background of Applicant 申请人教育信息
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <ul>
+                            <li>
+                                <p>
+                                    <span class="tip">*</span>Current School & Grade <br>现就读学校及年级
+
+                                </p>
+                                <textarea name="school" id="school"></textarea>
+                            </li>
+                            <li>
+                                <p>
+                                    <span class="tip">*</span>Relevant solo or symphony orchestra performance experience
+                                    <br>相关独奏和乐队演奏经验
+                                </p>
+                                <textarea name="experience" id="experience"></textarea>
+                            </li>
+                            <li>
+                                <p>
+                                    <span class="tip">*</span>
+                                    Qualification and Arts Awards (Year attained and specific content)<br>
+                                    艺术考级及奖项（年份和具体内容）
+                                </p>
+                                <textarea name="pride" id="pride"></textarea>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2" class="title">
+                        Application Checklist 申请材料
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <ul>
+                            <li>
+                                <p>
+                                    Copy of first page and applicant’s page of the Household Register (for Chinese
+                                    mainland citizens) / passport and valid visa (for Non-Chinese mainland citizens)
+                                    户口本首页和申请人本人（学生）页复印件(中国大陆学生) / 护照及有效签证复印件（非中国大陆学生）
+                                </p>
+
+                                <p>
+                                    <input type="file" value="上传" accept=".jpg,.png" multiple/>
+                                </p>
+                            </li>
+                            <li>
+                                Photocopy of the qualification proof and certificate attained by the applicant
+                                申请人音乐资格证明及证书复印件
+                                <p>
+                                    <input type="file" value="上传" accept=".jpg,.png" multiple/>
+                                </p>
+                            </li>
+                            <li>
+                                Recommendation letters (if any).
+                                推荐信 (如有)
+                                <p>
+                                    <input type="file" value="上传" accept=".jpg,.png" multiple/>
+                                </p>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2" class="title">
+                        Others 其他
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <p>
+                            How did you learn about SHIYO？ 您是怎样知道上海国际青少年乐团的？
+                        </p>
+                        <ul>
+                            <li id="know">
+                                <p>
+                                    <label for="know1">
+                                        <input type="radio" name="howKnow" id=""/>
+                                        <span>From my friends 朋友 </span>
+                                    </label>
+                                </p>
+
+                                <p>
+                                    <label for="know2">
+                                        <input type="radio" name="howKnow" id=""/>
+                                        <span>From school teachers 学校老师  </span>
+                                    </label>
+                                </p>
+
+                                <p>
+                                    <label for="know3">
+                                        <input type="radio" name="howKnow" id=""/>
+                                        <span>From web search (please give details of which search engine below) 网络搜索 (请在空位具体阐明)</span>
+                                        <input type="text" name="" id="" class="blank"/>
+                                    </label>
+                                </p>
+
+                                <p>
+                                    <label for="know4">
+                                        <input type="radio" name="howKnow" id=""/>
+                                        <span>From advertisement (please give details of which media below) 广告（请在空位具体阐明）</span>
+                                        <input type="text" name="" id="" class="blank"/>
+                                    </label>
+                                </p>
+
+                                <p>
+                                    <label for="know5">
+                                        <input type="radio" name="howKnow" id=""/>
+                                        <span> From other channels (please give details) 其他渠道（请具体阐明）？</span>
+                                        <input type="text" name="" id="" class="blank"/>
+                                    </label>
+                                </p>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2" class="submit-btn">
+                        <input type="submit" value="提交" id="submit"/>
+                        <input type="reset" value="重置"/>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </section>
+</form>
+<script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+<!--<script src="script/form.js"></script>-->
+<script src="script/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,191 @@
+@charset "utf-8";
+.act-return {
+  margin: 0 auto;
+  width: 1190px;
+  height: 50px;
+  line-height: 50px;
+  text-align: right;
+  a {
+    display: inline-block;
+    width: 120px;
+    height: 32px;
+    line-height: 32px;
+    text-align: center;
+    background: rgba(0, 0, 0, .5);
+    color: #fff;
+    border-radius: 15px;
+    transition: all .3s;
+    &:hover {
+      background: rgba(0, 0, 0, .8);
+    }
+  }
+}
+
+.activity-main {
+  min-height: 500px;
+  height: auto;
+  background: #fff;
+  padding: 50px 30px;
+  width: 1130px;
+  margin: 400px auto 40px;
+}
+
+.brand-intro {
+  margin-bottom: 50px;
+}
+
+.act-title {
+  margin-bottom: 15px;
+  clear: both;
+  overflow: hidden;
+  h3 {
+    float: left;
+    width: (209 - 53)+px;
+    padding-left: 53px;
+    height: 40px;
+    line-height: 32px;
+    font-size: 36px;
+    font-weight: normal;
+    background: url(../images/activity/act-bg1.jpg) no-repeat 0 0;
+  }
+  a {
+    float: right;
+    span {
+      color: $red;
+    }
+  }
+}
+
+.act-intro {
+  background: #f7f7f7;
+  padding: 15px;
+  line-height: 2;
+}
+
+/*--活动图集--*/
+.brand-galley {
+  margin-bottom: 40px;
+  height: 330px;
+  clear: both;
+  overflow: hidden;
+}
+
+.gal-title {
+  float: left;
+  height: 260px;
+  width: 50px;
+  padding: 70px 40px 0;
+  background: url(../images/activity/act-bg2.jpg) no-repeat 0 0;
+  font-size: 36px;
+  text-align: center;
+}
+
+.gal-list {
+  float: right;
+  width: 990px;
+  height: 330px;
+  dl {
+    width: 1010px;
+  }
+  img {
+    width: 100%;
+    height: 100%;
+    transition: all 4s;
+    &:hover {
+      transform: scale(1.2);
+    }
+  }
+  dt, dd {
+    float: left;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    overflow: hidden;
+  }
+  dt {
+    width: 490px;
+    height: 330px;
+  }
+  dd {
+    width: 240px;
+    height: 160px;
+    &.brand-more a {
+      display: block;
+      width: 100%;
+      height: 100%;
+      background: #333;
+      text-align: center;
+      line-height: 160px;
+      color: #fff;
+      font-size: 24px;
+      transition: all .3s;
+      &:hover {
+        background: $red;
+      }
+    }
+  }
+}
+
+/*--活动列表--*/
+.brand-ar-list {
+  clear: both;
+  overflow: hidden;
+  ul {
+    width: 1200px;
+  }
+  li {
+    float: left;
+    width: 360px;
+    height: 420px;
+    background: #f7f7f7;
+    margin: 0 25px 20px 0;
+    transition: all .3s;
+    h3 {
+      padding-left: 20px;
+      height: 55px;
+      line-height: 55px;
+      font-weight: normal;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      overflow: hidden;
+    }
+    img {
+      width: 360px;
+      height: 240px;
+    }
+    p {
+      height: 100px;
+      padding: 10px;
+      line-height: 2;
+    }
+    &:hover {
+      background: $red;
+      a {
+        color: #fff;
+      }
+    }
+  }
+}
+
+/*--品牌图册--*/
+.brand-img-list {
+  clear: both;
+  overflow: hidden;
+  ul{
+    width: 1200px;
+  }
+  li {
+    float: left;
+    width: 270px;
+    height: 180px;
+    margin: 0 15px 15px 0;
+    overflow: hidden;
+    img {
+      width: 100%;
+      height: 100%;
+      transition: all 3s;
+      &:hover {
+        transform: scale(1.2);
+      }
+    }
+  }
+}

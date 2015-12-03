@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            padding: 50px;
+        }
+
+        li {
+            list-style: none;
+            margin-bottom: 10px;
+        }
+
+        .basic-infor {
+            margin-top: 20px;
+            border: 1px dashed #ccc;
+        }
+
+        .basic-infor li {
+            border-bottom: 1px dashed #ccc;
+        }
+
+        #submit {
+            display: inline-block;
+            width: 120px;
+            height: 32px;
+            background: #cd0000;
+            color: #fff;
+            text-align: center;
+            line-height: 32px;
+        }
+        .btn-wrap{
+            margin: 20px auto;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+<ul>
+    <li>
+        <input type="text" name="" id="userName" placeholder="联系人">
+    </li>
+    <li>
+        <input type="text" name="" id="userPhone" placeholder="联系方式">
+    </li>
+    <li>
+        <textarea name="" id="userSay" cols="30" rows="10" placeholder="发布需求"></textarea>
+    </li>
+    <li>
+        <input type="file" name="" id="upload">
+        <img src="" alt="" id="showpic" width="200" height="200">
+    </li>
+</ul>
+
+<div class="basic-infor">
+    <ul>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+</div>
+
+<div class="btn-wrap">
+    <a href="" id="submit">
+        提交
+    </a>
+</div>
+
+<script>
+    document.getElementById('upload').addEventListener('change', upload, false);
+
+    function upload() {
+        var oForm = new FormData();
+
+        oForm.append('myfile', this.files[0]);
+        oForm.append('userName', document.getElementById('userName').value);
+        oForm.append('userPhone', document.getElementById('userPhone').value);
+        oForm.append('userSay', document.getElementById('userSay').value);
+
+        var oReq = new XMLHttpRequest();
+        oReq.open('POST', '/upload', true);
+        oReq.onload = function () {
+            if (this.status == 200) {
+                var json = JSON.parse(this.responseText);
+
+                var aP = document.querySelectorAll('.basic-infor li');
+
+                aP[0].innerHTML = '姓名：' + json.userName;
+                aP[1].innerHTML = '联系方式：' + json.userPhone;
+                aP[2].innerHTML = '需求说明：' + json.userSay;
+                console.log("图片名称："+json.imgSrc);
+                document.getElementById('showpic').src = json.imgSrc;
+            }
+        };
+
+        oReq.send(oForm);
+
+    }
+</script>
+</body>
+</html>

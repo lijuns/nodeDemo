@@ -1,0 +1,59 @@
+@charset "utf-8";
+
+html {
+  font-size: 62.5%;
+  overflow-x: hidden;
+}
+
+body {
+  background: #f9f9f9;
+  color: #1B1D1F;
+}
+
+body, input, select, textarea {
+  font-size: 14px;
+  font-family: 'Helvetica Neue', 'Microsoft Yahei', 'Hiragino Sans GB', sans-serif;
+}
+
+body, dl, dd, h1, h2, h3, h4, h5, h6, p, form, article, aside, details, figcaption, figure, footer, header, menu, nav, section, input, select {
+  margin: 0;
+  padding: 0;
+}
+
+:focus {
+  outline: none;
+}
+
+article, aside, footer, header, menu, nav, section {
+  display: block;
+}
+
+ol, ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+table, th, td {
+  border: 1px solid #dfdfdf;
+  border-collapse: collapse;
+  padding: 1%;
+}
+
+th {
+  padding: 0 1%;
+  font-weight: normal;
+}
+
+a {
+  text-decoration: none;
+  color: #666;
+  &:hover {
+    color: $red;
+  }
+}
+
+img {
+  border: none;
+}
+

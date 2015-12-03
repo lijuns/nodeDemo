@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>用户注册</title>
+</head>
+<body>
+<form action="/reg" method="post" enctype="multipart/form-data">
+    <ul>
+        <li>
+            <span>用户名：</span>
+            <input type="text" name="name" id="name">
+        </li>
+        <li>
+            <span>密码：</span>
+            <input type="password" name="password" id="">
+        </li>
+        <li>
+            <span>头像：</span>
+            <input type="file" name="avatar" id="avatar">
+        </li>
+        <li>
+            <input type="submit" value="提交" id="submit-btn">
+        </li>
+    </ul>
+</form>
+<script>
+    document.getElementById('submit-btn').addEventListener('click', function () {
+        var formData = new FormData();
+        //添加普通表单
+        formData.append('username', document.getElementsByName('name')[0].value);
+        formData.append('paw', document.getElementsByName('password')[0].value);
+
+        //添加文件上传表单
+        var xhr = new XMLHttpRequest();
+        xhr.open('POST', './reg', true);
+        xhr.onload = function () {
+            if (this.status == 200) {
+                console.log(this.responseText);
+            }
+        }
+        xhr.send(formData);
+    })
+</script>
+</body>
+</html>

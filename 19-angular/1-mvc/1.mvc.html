@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en" ng-app="appModule">
+<head>
+    <meta charset="UTF-8">
+    <title>MVC1</title>
+</head>
+<body>
+<!--
+    创建视图 V
+    给视图绑定控制器
+-->
+<div class="" ng-controller="appControl">
+    <!--
+        {{ }} angular的表达式，里面可以写变量，也可以写函数、+-*/、数组....等等
+    -->
+    hello {{name}}
+    <p>
+        {{person.name + person.say()}}
+    </p>
+
+    <p>
+        {{age}}
+    </p>
+
+    <div ng-controller="appController2">
+        {{name}} <br>
+        父级控制器上的属性：{{person.name}}
+    </div>
+</div>
+<script src="../script/angular.js"></script>
+<script>
+    //默认创建 angular = window.angular
+
+    /*
+     * 创建一个模块
+     * 2-module(moduleName,[dependModule]);
+     * moduleName String
+     * dependModule Array
+     * 如果参数不加 依赖模块，表示获取这个模块
+     *
+     * */
+
+    var app = angular.module('appModule', []); //导入模块
+
+    /*
+     * 创建一个控制器
+     * 参数为该控制器提供的服务
+     * C 就是控制器
+     * M 就是 $scope
+     * app.control('appController',function($scope){
+     *   $scope.name = 'zfpx'
+     * })
+     *
+     * */
+
+    app.controller('appControl', function ($scope) { //控制器的定义
+        $scope.name = 'world';
+        console.log($scope);
+        $scope.person = {
+            name: '你好',
+            say: function () {
+                return '世界';
+            }
+        };
+    });
+
+
+    app.controller('appController2', function ($rootScope, $scope) {
+        $scope.name = 'hello javascript';
+        $scope.$parent.name = '再次赋值';   //覆盖父级的属性
+        $rootScope.age = '我是根控制器上的年龄';
+    });
+
+    /*
+     * 控制器的一些特点：
+     * 控制器 $scope有 .parent 属性，该属性指向其父级控制器，所以控制器之间会相互继承、嵌套
+     * 控制器的顶级控制器是 ng-app; 它会生成一个 $rootScope的根作用域
+     *
+     * */
+
+
+</script>
+</body>
+</html>

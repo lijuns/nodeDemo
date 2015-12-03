@@ -1,0 +1,23 @@
+{
+  "name": "leanrglup",
+  "version": "1.0.0",
+  "description": "study glup in 2015-11-26",
+  "main": "glup.js",
+  "scripts": {
+    "test": "testGlup.js"
+  },
+  "devDependencies": {
+    "gulp": "^3.9.0",
+    "gulp-concat": "^2.6.0",
+    "gulp-connect": "^2.2.0",
+    "gulp-imagemin": "^2.3.0",
+    "gulp-ruby-sass": "^2.0.4"
+  },
+  "keywords": [
+    "nodejs",
+    "glup"
+  ],
+  "author": "tanyahui",
+  "license": "MIT"
+}
+

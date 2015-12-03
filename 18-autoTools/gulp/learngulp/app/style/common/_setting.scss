@@ -1,0 +1,119 @@
+@charset "utf-8";
+
+//基础颜色
+$red: #d53636;
+$yellow: #f39800;
+$gray: #666;
+$black: #333;
+
+//基础设置
+$baseFontSize: 12px !default;
+$baseLineHeight: 1.5 !default;
+$baseFont: "microsoft yahei", "Helvetica Neue", Helvetica, STHeiTi, Arial, sans-serif !default;
+
+.wrap {
+  width: 1190px;
+  margin: 0 auto;
+}
+
+.l {
+  float: left;
+}
+
+.r {
+  float: right;
+}
+
+.clearfix {
+  clear: both;
+  &:after {
+    content: ".";
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden;
+  }
+}
+
+.hr {
+  border-top: 1px solid #ddd;
+  height: 5px;
+}
+
+@font-face {
+  font-family: 'iconfont';
+  src: url('../font/iconfont.eot'); /* IE9*/
+  src: url('../font/iconfont.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */ url('../font/iconfont.woff') format('woff'), /* chrome、firefox */ url('../font/iconfont.ttf') format('truetype'), /* chrome、firefox、opera、Safari, Android, iOS 4.2+*/ url('../font/iconfont.svg#iconfont') format('svg'); /* iOS 4.1- */
+}
+
+.iconfont {
+  font-family: "iconfont" !important;
+  font-size: 16px; font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -webkit-text-stroke-width: 0.2px;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/*--title1--*/
+.title1 {
+  padding-bottom: 5px;
+  border-bottom: 5px solid #e8e8e8;
+  clear: both;
+  overflow: hidden;
+  li {
+    float: left;
+    margin-right: 10px;
+    a {
+      display: block;
+      padding: 10px;
+      font-size: 18px;
+      color: $black;
+    }
+    &.on {
+      a {
+        background: $yellow;
+        color: #fff;
+      }
+    }
+  }
+}
+
+/*--自定义标签--*/
+.tag-top, .tag-recommend {
+  display: inline-block;
+  background: $red;
+  color: #fff;
+  font-size: 14px;
+  font-weight: normal;
+  padding: 3px 5px;
+}
+
+.tag-recommend {
+  background: $black;
+  color: #fff;
+}
+
+/*--title2--*/
+.title2 {
+  padding-left: 8px;
+  height: 49px;
+  border-bottom: 5px solid #e8e8e8;
+  clear: both;
+  li {
+    float: left;
+    margin-right: 10px;
+    a {
+      display: block;
+      padding:0 10px;
+      height: 49px;
+      line-height: 49px;
+      font-size: 18px;
+      color: $black;
+    }
+    &.on {
+      a {
+        border-bottom: 5px solid $yellow;
+      }
+    }
+  }
+}
