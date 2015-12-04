@@ -80,6 +80,7 @@
         var oForm = new FormData();
 
         oForm.append('myfile', this.files[0]);
+        console.log(this);
         oForm.append('userName', document.getElementById('userName').value);
         oForm.append('userPhone', document.getElementById('userPhone').value);
         oForm.append('userSay', document.getElementById('userSay').value);
@@ -103,6 +104,9 @@
         oReq.send(oForm);
 
     }
+
+
+
 </script>
 </body>
 </html>

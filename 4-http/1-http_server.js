@@ -10,6 +10,7 @@
 
 var http = require('http');
 var mime = require('mime');
+var path = require('path');
 var fs = require('fs');
 
 var server = http.createServer(function (request, response) {

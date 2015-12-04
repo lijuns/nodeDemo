@@ -26,8 +26,8 @@
 </div>
 <script>
     function login() {
-        var username= $.trim($('#username').val()) ;
-        var paw =$.trim( $('#password').val());
+        var username = $.trim($('#username').val());
+        var paw = $.trim($('#password').val());
 
         var data = {'username': username, 'password': paw};
         console.log(data);
@@ -36,9 +36,9 @@
             type: 'post',
             data: data,
             success: function (data) {
-
-                if(data=="ok"){
-                    location.href='./home'
+                if(data.message){
+                    alert('登录成功');
+                    location.href= '/home?message='+data.message;
                 }else{
                     $('#password').val('');
                     $('#username').val('');

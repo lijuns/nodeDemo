@@ -22,20 +22,25 @@ app.use(express.static(__dirname + '/view'));
 app.get('/login', function (req, res) {
     res.render('login');
 });
+app.post('/register', function (req, res) {
+
+});
+
 app.get('/home', urlencodedParser, function (req, res) {
-    console.log(req.url);
-    res.render("home");
+    res.render("home", {
+        message: req.query.message
+    });
 
 });
 
 app.post('/home', urlencodedParser, function (req, res) {
     if (req.body.username == users.username && req.body.password == users.password) {
         res.status(200).send({
-            message:'登录成功'
+            message: '登录成功'
         });
     } else {
-        res.end("failed",{
-            message:'登录失败'
+        res.end("failed", {
+            message: '登录失败'
         });
     }
 });
