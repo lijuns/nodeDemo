@@ -48,7 +48,7 @@
 </div>
 <script src="jquery.js"></script>
 <script>
-    $('#register').on('click', function () {
+    $('#register-btn').on('click', function () {
         var data = {
             username: $('#username').val(),
             paw: $('#paw').val()
@@ -56,9 +56,10 @@
         $.ajax({
             method: "post",
             url: '/register',
-            data: JSON.stringify(data),
+            data: data,
             success: function (data) {
                 alert(data);
+                location.href = '/login';
             }
         })
     })

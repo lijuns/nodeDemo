@@ -31,3 +31,16 @@ setTimeout(function () {
     fs.unwatchFile('watchFile.txt', func2);
 }, 3000);
 
+function watch(origin, target) {
+    fs.watchFile(origin, function (curr, prev) {
+        if (Date.parse(curr.ctime) == 0) {
+            fs.unlink(target, function () {
+                console.log('监听文件被删除');
+            })
+        } else {
+            fs.createReadStream(origin).pipe(fs.createWriteStream(target));
+        }
+    })
+}
+
+watch('./path/1.txt', './path/2.txt');
