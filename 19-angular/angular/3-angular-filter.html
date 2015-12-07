@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en" ng-app="">
+<head>
+    <meta charset="UTF-8">
+    <title>过滤器</title>
+</head>
+<body>
+<!--
+    565556 | currency:￥; 使用 currency 过滤
+
+    378787 | date:'yyyy-MM-dd hh:mm:ss EEEE' 年月日 小时 分钟 秒 星期
+
+    'ababs'| filter:'query';  根据query 过滤数组数据中字符串内容
+
+    jsonTest | json  没有参数，将json转化为json字符串，可以作为调试使用
+
+    array | limitTo:2 (限制数组长度或字符串长度)
+
+    string | lowercase 转化成小写
+
+    string | uppercase 转化成大写
+
+    number | number:2; 格式化为数字，带参数表示精确的小数位数
+
+    array | orderBy:age 数组根据某个属性值进行排序
+
+-->
+<div class="a1">
+    <input type="text" name="" id="" ng-model="money" placeholder="钱币金额过滤">
+    <p ng-bind="money | currency:'￥'"></p>
+</div>
+
+<div class="a2">
+    <input type="text" name="" id="time" ng-model="time" placeholder="时间过滤器">
+    <p ng-bind="time | date:'yyyy-MM-dd hh:mm:ss EEEE'"></p>
+</div>
+<script src="lib/bower_components/angular/angular.js"></script>
+</body>
+</html>
+

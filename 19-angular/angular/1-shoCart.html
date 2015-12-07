@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en" ng-app="zfpx">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <link rel="stylesheet" href="lib/bower_components/bootstrap/dist/css/bootstrap.min.css">
+</head>
+<body>
+<div class="container">
+    <div ng-controller="DetailController">
+        <table class="table table-responsive">
+            <tr>
+                <td>商品名称</td>
+                <td>商品价格</td>
+                <td>商品数量</td>
+            </tr>
+
+            <tr ng-repeat="item in items">
+                <td ng-bind="item.name"></td>
+                <td ng-bind="item.price"></td>
+                <td>
+                    <input type="button" value="+" class="btn btn-primary" ng-click="change($index,1)">
+                    <input type="text" ng-model="item.amount" class="text-center">
+                    <input type="button" value="-" class="btn btn-primary" ng-click="change($index,-1)">
+                </td>
+            </tr>
+
+        </table>
+        <div>
+            总金额：<span ng-bind="getTotal() | currency:'￥'"></span>元
+        </div>
+    </div>
+</div>
+<script src="lib/bower_components/angular/angular.js"></script>
+<script>
+    var app = angular.module('zfpx', []);//定义一个模块
+
+    app.controller('DetailController', function ($scope) {
+        $scope.items = [
+            {name: 'F35', amount: 1, price: 12},
+            {name: 'F35', amount: 24, price: 7},
+            {name: 'F35', amount: 12, price: 23},
+            {name: 'F35', amount: 10, price: 1}
+        ];
+
+        $scope.getTotal = function () {
+            var total = 0;
+            for (var i in $scope.items) {
+                if ($scope.items[i].amount >= 0) {
+                    total += $scope.items[i].price * $scope.items[i].amount;
+                }
+            }
+            return total;
+        };
+
+        $scope.change = function (index, num) {
+            if ($scope.items[index].amount == 0 && num == -1) {
+                return false;
+            } else {
+                $scope.items[index].amount = parseInt($scope.items[index].amount)+ num;
+            }
+        };
+        $scope.$watch($scope.items, $scope.getTotal);
+    });
+</script>
+</body>
+</html>
+
