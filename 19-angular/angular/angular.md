@@ -72,6 +72,100 @@
 
 ### 过滤器
 
+> 565556 | currency:￥; 使用 currency 过滤
+
+> 378787 | date:'yyyy-MM-dd hh:mm:ss EEEE' 年月日 小时 分钟 秒 星期
+
+> 'ababs'| filter:'query';  根据query 过滤数组数据中字符串内容
+
+> jsonTest | json  没有参数，将json转化为json字符串，可以作为调试使用
+
+> array | limitTo:2 (限制数组长度或字符串长度)
+
+> string | lowercase 转化成小写
+
+> string | uppercase 转化成大写
+
+> number | number:2; 格式化为数字，带参数表示精确的小数位数
+
+> array | orderBy:age 数组根据某个属性值进行排序
+
 ### 路由
+
+### 表单验证
+
+> form 上要加上name属性
+> form 标签上加 novalidate 属性，这将禁止浏览器自带的验证功能，从而使用angular的验证
+> 所有输入的字段可以进行基本的验证，比如 最大长度、最小长度
+
+    必填：required
+    最小长度： ng-minlength 最小长度
+    最大长度：ng-maxlength 最大长度
+    正则匹配：ng-pattern = '/a-zA-Z/';
+
+    email验证：type=emial
+    数字验证 ：type=number
+    url验证：type=url
+
+    自定义验证：比如实现验证用户名是否可用（在数据库中不重复）
+
+```
+var app = angular.module('validationExample', []);
+
+app.directive('ensureUnique', ['$http', function($http) {
+  return {
+    require: 'ngModel',
+    link: function(scope, ele, attrs, c) {
+      scope.$watch(attrs.ngModel, function() {
+        $http({
+          method: 'POST',
+          url: '/api/check/' + attrs.ensureUnique,
+          data: {'field': attrs.ensureUnique}
+        }).success(function(data, status, headers, cfg) {
+          c.$setValidity('unique', data.isUnique);
+        }).error(function(data, status, headers, cfg) {
+          c.$setValidity('unique', false);
+        });
+      });
+    }
+  }
+}]);
+
+```
+> advance skill
+
+    未修改过的表单： formName.inputFieldName.$pristin  返回 true表示未修改 false表示已修改；
+
+    修改的表单： formName.inputFieldName.$dirty 当且仅当用户实际已经修改过的表单，不管表单是否验证通过；
+
+    经过验证的表单：formName.inputFieldName.$valid  布尔型属性，它指示表单是否通过验证，验证通过返回true
+
+    未通过验证的表单：formName.inputFieldName.$invaild 未通过验证的表单
+
+    错误：formName.inputfieldName.$error  验证失败返回true 成功返回true
+
+    无害的样式：
+
+    .ng-pristine{};     原始的
+    .ng-dirty{};        修改过
+    .ng-valid{};        验证通过
+    .ng-invaild{};      字段无效
+    .ng-invalid-required
+    .ng-invalid-minlength
+    .ng-valid-max-length
+
+    示例：
+    <span class="glyphicon glyphicon-ok form-control-feedback" ng-show="formSign.name.$dirty && formSign.name.$valid"></span>
+    <span class="glyphicon glyphicon-remove form-control-feedback" ng-show="formSign.name.$pristine || formSign.name.$invalid"></span>
+
+
+
+
+
+
+
+
+
+
 
 
