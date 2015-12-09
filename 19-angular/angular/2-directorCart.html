@@ -41,7 +41,7 @@
 
         <tr ng-repeat="item in dataList | filter:query | orderBy:order">
             <td>
-                <input type="checkbox" name="" class="form-inline" ng-checkone="{{item.id}}">
+                <input type="checkbox" name="" class="form-inline" ng-model="item.Bol">
             </td>
             <td ng-bind="item.name"></td>
             <td ng-bind="item.num"></td>
@@ -101,7 +101,7 @@
         * 数字在不输入的情况下怎么默认为 1
         * */
         $scope.dataList = [
-            {Bol: 'false', name: '洗衣机', num: 1, oneprice: 900, id: 0},
+            {Bol: 'true', name: '洗衣机', num: 1, oneprice: 900, id: 0},
             {Bol: 'false', name: '热水器', num: 1, oneprice: 110, id: 1},
             {Bol: 'false', name: '空调', num: 1, oneprice: 116, id: 2},
             {Bol: 'false', name: '冰箱', num: 1, oneprice: 2087, id: 3},
@@ -165,6 +165,7 @@
 
     app.directive('ngMinus', function () {
         return {
+            restrict:'A',
             link: function (scope, element, attr) {
                 element.on('click', function () {
                     angular.forEach(scope.dataList, function (data) {
