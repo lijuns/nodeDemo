@@ -50,7 +50,15 @@
 
     scope:true | false; 是否创建私有作用域；
     link:function(){scope,element,attrs}; 指令中操作DOM树，实现数据绑定
-    transclude:true | false | 'element'; 允许指令包韩版其他html元素
+
+    transclude:true | false | 'element'; 允许指令包含版其他html元素；（true：用新的房子来放置之前的东西，false:遗弃之前的东西）；
+
+        注意在指定放置物件的容器上必须放置 ng-transclude 指令
+
+    @name　绑定表达式
+    ＝ 绑定的是属性，表示双向数据绑定
+    &say()  引用的方法
+
 
 ### mvvm
 
@@ -61,6 +69,8 @@
     一般来说，controller 是不会互相调用的，控制器这间的交互是通过事件进行的。
 
     向父级递事件，向子级传递事件
+
+    作用域：
 
 ### 依赖注入
 

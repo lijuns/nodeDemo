@@ -1,5 +1,7 @@
 <!doctype html>
 <html lang="en" ng-app="cart">
+<link rel="stylesheet" href="//cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.css"/>
+<link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.4.0/css/font-awesome.css"/>
 <head>
     <meta charset="UTF-8">
     <title>Document</title>
@@ -14,12 +16,14 @@
             background: #286090;
             border-radius: 3px;
         }
+        .ng-cloak{display:none;}
     </style>
 </head>
 <body ng-controller="cartController">
 <div class="line">
 
 </div>
+
 <div class="container row-md-offset-3" style="padding-top:100px;">
     <div class="filter form-inline form-group">
         <input type="text" name="" class="form-control" id="" placeholder="请输入要搜索的关键字" ng-model="query">
@@ -28,8 +32,12 @@
             <option value="oneprice">价格</option>
             <option value="num">数量</option>
         </select>
+
+        <!--<p class="text-center" ng-show="loading">
+            <span class="fa fa-spinner fa-spin fa-3x"></span>
+        </p>-->
     </div>
-    <table class="table table-bordered table-hover text-center">
+    <table class="table table-bordered table-hover text-center ng-cloak" ng-cloak>
         <tr>
             <td>选择</td>
             <td>商品名称</td>
@@ -49,7 +57,7 @@
             <td>
                 <div class="form-group form-inline">
                     <input type="button" value="+" class="btn btn-primary" ng-plus="{{item.id}}">
-                    <input type="text" ng-model="item.num" class="text-center form-control">
+                    <input type="text" ng-model="item.num = item.num < 1 ? '1' : item.num" class="text-center form-control">
                     <input type="button" value="-" class="btn btn-primary" ng-minus="{{item.id}}">
                 </div>
             </td>
@@ -94,12 +102,13 @@
 
 <script>
     var app = angular.module('cart', []);
-    app.controller('cartController', function ($scope) {
+    var ct = app.controller('cartController', function ($scope, $timeout) {
+        $scope.loading = true;
         /*
-        * todo 数据太多怎么处理分页
-        * angular 渲染之前怎么加loading
-        * 数字在不输入的情况下怎么默认为 1
-        * */
+         * todo 数据太多怎么处理分页
+         * angular 渲染之前怎么加loading
+         * 数字在不输入的情况下怎么默认为 1
+         * */
         $scope.dataList = [
             {Bol: 'true', name: '洗衣机', num: 1, oneprice: 900, id: 0},
             {Bol: 'false', name: '热水器', num: 1, oneprice: 110, id: 1},
@@ -143,7 +152,17 @@
             }
         };
 
+        /*setInterval(function () {
+            $scope.loading = $scope.$$phase ? false : true;
+        }, 1000);
+
+        setInterval(function(){
+            console.log($scope.$$phase);
+        },100);
+        */
+
     });
+
 
     app.directive('ngPlus', function () {
         return {
@@ -165,7 +184,7 @@
 
     app.directive('ngMinus', function () {
         return {
-            restrict:'A',
+            restrict: 'A',
             link: function (scope, element, attr) {
                 element.on('click', function () {
                     angular.forEach(scope.dataList, function (data) {
@@ -201,6 +220,7 @@
                     angular.forEach(scope.dataList, function (data) {
                         if (element.prop('checked') === true) {
                             data.Bol = true;
+                            //todo angular.element();
                             for (var i = 0; i < document.querySelectorAll('input[type=checkbox]').length; i++) {
                                 document.querySelectorAll('input[type=checkbox]')[i].setAttribute('checked', true);
                             }

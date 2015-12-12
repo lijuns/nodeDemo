@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="lib/bower_components/bootstrap/dist/css/bootstrap.min.css">
+</head>
+<body>
+<div id="logger">
+
+</div>
+</body>
+<script src="lib/bower_components/angular/angular.js"></script>
+<script>
+    angular.element(document).ready(function () {
+        var injector = angular.injector['ng'];
+        injector.invoke(function ($log) {   //注册并且调用
+            angular.element(document.querySelector('#logger')).text($log.toString());
+        })
+    })
+</script>
+</html>

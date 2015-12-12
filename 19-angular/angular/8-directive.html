@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="infonx">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="lib/bower_components/bootstrap/dist/css/bootstrap.min.css">
+</head>
+<body>
+
+<div ng-controller="inCtrl">
+    <alert level="success">
+        <p>这是一个成功</p>
+    </alert>
+    <alert level="danger">
+        <p>这是一个失败</p>
+    </alert>
+</div>
+
+</body>
+
+<script src="lib/bower_components/angular/angular.js"></script>
+<script>
+    angular.module('infonx', []);
+
+    angular.module('infonx').controller('inCtrl', function ($scope) {
+
+    });
+    angular.module('infonx').directive('alert', function () {
+        return {
+            replace: true,
+            transclude: true,
+            scope:{
+                level:"@"
+            },
+            template: '<div class="alert alert-{{level}}" ng-transclude role="alert"></div>',
+            link: function (scope, element) {
+                element.bind('click', function () {
+                    alert(element.text());
+                })
+            }
+        }
+    })
+</script>
+</html>
