@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en" ng-app="myFilter">
+<head>
+    <meta charset="UTF-8">
+    <title>过滤器</title>
+</head>
+<body ng-controller="myFilterCtrl">
+<input type="text" name="" id="send">
+<span></span>
+
+<script src="lib/bower_components/angular/angular.js"></script>
+<script>
+    angular.module('myFilter', []);
+    angular.module('myFilter').controller('myFilterCtrl');
+    angular.module('myFilter').filter('toname', function ($scope, $http) {
+        return function (input, length) {
+            $http.post(input).success(function () {
+
+            })
+        }
+    })
+</script>
+</body>
+</html>
+

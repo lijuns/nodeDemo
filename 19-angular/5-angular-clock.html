@@ -11,7 +11,9 @@
 
 <div ng-controller="ClockCtrl">
     数据格式：<input type="text" name="" id="" ng-model="format">
+
     <hr>
+
     当前时间 <span current-time="format"></span>
 </div>
 
@@ -21,10 +23,19 @@
     angular.module('infonx').controller('ClockCtrl', function ($scope) {
         $scope.format = 'yyyy-M-dd hh:mm:ss';
     });
-    angular.module('infonx').directive('currentTime', function () {
+
+    angular.module('infonx').directive('currentTime', function ($interval, $filter) {
         return {
             link: function (scope, element, attrs) {
+                function updateTime() {
+                    element.text($filter('date')(new Date(), scope[attrs.currentTime]));
+                }
+                scope.$watch(attrs.currentTime, updateTime);
+                timeoutId = $interval(updateTime, 1000);
 
+                element.on('$destroy', function () {
+                    $interval.cancel(timeoutId);
+                })
             }
         }
     });

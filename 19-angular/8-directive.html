@@ -15,16 +15,14 @@
         <p>这是一个失败</p>
     </alert>
 </div>
-
 </body>
 
 <script src="lib/bower_components/angular/angular.js"></script>
 <script>
     angular.module('infonx', []);
-
     angular.module('infonx').controller('inCtrl', function ($scope) {
-
     });
+
     angular.module('infonx').directive('alert', function () {
         return {
             replace: true,
