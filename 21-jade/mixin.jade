@@ -1,0 +1,33 @@
+doctype html
+html
+    head
+    body
+        //使用代码块
+        mixin list
+            ul
+                li foo
+                li bar
+                li baz
+        +list
+        +list
+
+        mixin pet(name)
+            li= name
+
+        ul
+            +pet('大金')
+            +pet('猫咪')
+            +pet('小狗')
+
+
+        //plain text
+
+        | 这句话是普通的文本啊啊啊啊啊啊啊
+
+        p
+           | 上还得耗费精神点击返回数据恢复精神分机号多少
+
+        p 普通文本   <strong>大家好</strong>
+
+        a: img
+        p: strong: em abc

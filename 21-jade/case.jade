@@ -1,0 +1,47 @@
+doctype html
+html
+    head
+    body
+        - friends = 10;
+            case friends
+                when 0
+                when 1
+                    p 没有朋友
+                when 10
+                    p 你有10个朋友
+                default: p 大家好
+
+        - list = ['大金','结婚'];
+        ul
+            each item in list
+                li #{item}
+
+        p 我要和#{list[0]}#{list[1]}了
+
+        //一些复杂的conditions 语句
+
+        - var user = {desc:'来自变量的描述'};
+        - var bol = true;
+        #user
+            if user.desc
+                h2 描述
+                p.description= user.desc
+            else if bol
+                h2 描述2
+                p.description 没有描述
+
+        //include 文件
+        include include.jade
+
+
+
+
+
+
+
+
+
+
+
+
+

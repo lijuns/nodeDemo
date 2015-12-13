@@ -71,6 +71,7 @@ gulp.task('sassCompile', function () {
         .pipe(connect.reload());    //自动刷新
 });
 
+
 gulp.task('watchCss', function () {
     return gulp.watch('app/style/**/*.scss', ['sassCompile'])
 });

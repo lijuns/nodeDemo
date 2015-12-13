@@ -1,0 +1,22 @@
+doctype html
+html
+    head
+    body
+        - var msg = 'i am here';
+        p msg is #{msg.toUpperCase()}
+
+        //循环
+        ul
+            each val in [1,2,34,4]
+                li= val
+
+        - var arr = ['大金','猫咪','小狗'];
+        ul
+            each val,index in arr
+                li= index +':'+val
+
+        - var json = {'a':'one',2:'two',3:'three'};
+        ul
+            each val,index in json
+                li= index +':'+val
+
